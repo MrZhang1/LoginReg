@@ -43,6 +43,8 @@ def login(request):
 				return redirect('/')
 			else:
 				request.session['id'] = user[1]['user']
+				print user[1]['user']
+				print type(user[1]['user'])
 				messages.info(request, 'Successfully logged in!')
 				return redirect('/process/login/{}'.format(user[1]['user']))
 
@@ -52,8 +54,8 @@ def login(request):
 
 
 def loginsuccess(request, id):
-	if id in request.session:
-		if request.session['id'] == int(id):
+	if 'id' in request.session:
+		if int(request.session['id']) == int(id):
 			user = models.LoginReg.LoginMgr.get(id=id)
 			return render(request, 'loginreg/loginsuccess.html', context={'user': user})
 		else:
