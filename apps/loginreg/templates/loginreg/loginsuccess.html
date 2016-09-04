@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="Django Login and Registration Demo" content="Django Login and Registration Demo">
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'loginreg/css/loginsuccess_style.css'%}">
+		<title>Login and Registration</title>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script type="text/javascript">
+			//
+		</script>
+	</head>
+	<body>
+		<h2>Success! Welcome, {{user.first_name}} !</h2>
+		{% if messages %}
+			<ul class="messages">
+				{% for msg in messages %}
+				<li>
+					<!-- {{msg.level_tag}} -->
+					<div class="alert-{{msg.level_tag}}" role="alert">
+						{{msg.message}}
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		<a href="{%url 'logout' %}"><button>Log Out</button></a>
+	</body>
+</html>

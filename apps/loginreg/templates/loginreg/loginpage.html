@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="Django Login and Registration Demo" content="Django Login and Registration Demo">
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'loginreg/css/loginpagestyle.css'%}">
+		<title>Login and Registration</title>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script type="text/javascript">
+			//
+		</script>
+	</head>
+	<body>
+		<!-- For Error Messages if Any -->
+	
+			{% if messages %}
+			<ul class="messages">
+				{% for msg in messages %}
+				<li>
+					{% if 'error' in msg.level_tag %}
+					<div class="alert-{{msg.level_tag}}" role="alert">
+						{{msg.message}}
+					</div>
+					{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		
+
+		<h4>Registration</h4>
+		<form action='/processform' method='post'>
+			{% csrf_token %}
+			<input type="hidden" name="action" value="Register">
+			<label>First Name:</label>
+			<input type="text" name="first_name" placeholder='John'><br>
+
+			<label>Last Name:</label>
+			<input type="text" name="last_name" placeholder='Smith'><br>
+
+			<label>Email:</label>
+			<input type="text" name="email" placeholder='John@Smith.com'><br>
+
+			<label>Password:</label>
+			<input type="password" name="password"><br>
+
+			<label>Confirm Password:</label>
+			<input type="password" name="confirmpassword"><br>
+
+			<input type="submit" name="submit" value="Register">
+		</form>
+
+		<h4>Login</h4>
+		<form action='/processform' method='post'>
+			{% csrf_token %}
+			<input type="hidden" name="action" value="Login">
+			<label>Email:</label>
+			<input type="text" name="email" placeholder='John@Smith.com'><br>
+
+			<label>Password:</label>
+			<input type="password" name="password"><br>
+
+			<input type="submit" name="submit" value="Login">
+		</form>
+	</body>
+</html>

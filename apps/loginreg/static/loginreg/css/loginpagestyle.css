@@ -1,0 +1,45 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+h4{
+	text-align: center;
+	margin: 5px 0px;
+}
+form{
+	width: 280px;
+	padding: 5px;
+	border: 1px solid black;
+	margin: 0px auto;
+	margin-bottom: 10px;
+}
+label{
+	display: inline-block;
+	vertical-align: top;
+	width: 130px;
+	margin-right: 5px;
+}
+input{
+	margin: 2px 0px;
+}
+input[type='submit']{
+	background-color: #1283fe;
+	color: white;
+	width: 50px;
+	padding: 2px;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin-left: 220px;
+}
+input[type='submit'][value='Register']{
+	background-color: #4caf50;
+}
+.alert-error{
+	text-align:center;
+	border: 1px solid #cd3d61;
+	border-radius: 5px;
+	width: 280px;
+	margin: 5px auto;
+	background-color: #ebb9c6;
+	color: #cd3d61;
+}
